@@ -1,11 +1,8 @@
-import os
-from flask import Flask, render_template
-# geventではなくeventletを使用するため、eventletをインポートします
 import eventlet
-
-# eventletのパッチを適用します
 eventlet.monkey_patch()
 
+import os
+from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
