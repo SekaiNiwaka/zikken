@@ -53,9 +53,9 @@
     </div>
 
     <script>
-        // Renderにデプロイすると、URLは自動で決まります
-        // ここは変更する必要はありません
-        const socket = io(); 
+        // Pythonから渡されたホストURLを使用してWebSocketに接続します
+        // このように明示的に指定することで、接続の問題を防ぎます
+        const socket = io('https://{{ host_url }}');
 
         // 接続が確立されたときのイベント
         socket.on('connect', function() {
