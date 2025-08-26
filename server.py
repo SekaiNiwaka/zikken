@@ -8,6 +8,8 @@ app = Flask(__name__)
 port = int(os.environ.get('PORT', 5000))
 # セキュリティのためにシークレットキーを環境変数から取得します
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'default_secret') 
+# Socket.IOのインスタンスをFlaskアプリケーションにアタッチします
+# CORSの設定を追加し、すべてのオリジンからのアクセスを許可します
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # トップページにアクセスされたときにindex.htmlをレンダリングします
