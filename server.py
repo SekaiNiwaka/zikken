@@ -1,16 +1,12 @@
 import os
 from flask import Flask, render_template
+# geventではなくeventletを使用するため、eventletをインポートします
+import eventlet
 
-# WebSocketの通信が正しく行われるようにするために、
-# geventとgevent-websocketをインポートします
-from gevent import monkey
-from gevent.pywsgi import WSGIServer
-from geventwebsocket.handler import WebSocketHandler
+# eventletのパッチを適用します
+eventlet.monkey_patch()
 
 from flask_socketio import SocketIO, emit
-
-# geventのパッチを適用します
-monkey.patch_all()
 
 app = Flask(__name__)
 
